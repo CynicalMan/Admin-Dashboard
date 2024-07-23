@@ -2,6 +2,7 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://cynicalman.github.io/Admin-Dashboard/",
   "dependencies": {
     "@emotion/styled": "^11.13.0",
     "@mui/icons-material": "^5.16.4",
