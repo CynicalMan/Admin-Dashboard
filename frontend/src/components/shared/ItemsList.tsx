@@ -3,8 +3,8 @@ import { DataGrid } from "@mui/x-data-grid";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Item } from "../../models/Item.model";
-import { AppDispatch, RootState } from "../../redux/store";
-import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch } from "../../redux/store";
+import { useDispatch } from "react-redux";
 import { deleteItem } from "../../api/itemsApi";
 
 interface ItemsListProps {
