@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addItem, getItem, updateItem } from "../api/itemsApi";
+import { getItem, updateItem } from "../api/itemsApi";
 import { AppDispatch, RootState } from "../redux/store";
 import { useParams } from "react-router";
 import { Item } from "../models/Item.model";
