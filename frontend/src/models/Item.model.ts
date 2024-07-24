@@ -1,5 +1,6 @@
 export interface Item {
+    userId: number;
     id: number;
-    name: string;
-    description: string;
+    title: string;
+    completed: boolean;
 }
