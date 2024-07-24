@@ -7,6 +7,7 @@ import { RouterProvider } from 'react-router-dom';
 import { router } from './routes/routes';
 import { Provider } from 'react-redux';
 import ThemeProvider from './providers/ThemeProvider';
+import { ToastContainer } from 'react-toastify';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -16,6 +17,7 @@ root.render(
     <Provider store={store}>
       <ThemeProvider>
         <RouterProvider  router={router} />
+        <ToastContainer />
       </ThemeProvider>
     </Provider>
   </React.StrictMode>

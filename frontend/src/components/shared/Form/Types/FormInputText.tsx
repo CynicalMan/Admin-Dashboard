@@ -11,7 +11,7 @@ interface FormInputTextProps {
 const FormInputText: React.FC<FormInputTextProps> = ({ name, control, label, type }) => {
     return (
         <div className="flex flex-col mb-4">
-        <label className="mb-2 font-semibold text-gray-700">{label}</label>
+        <label className="mb-2 font-semibold text-tSecondary">{label}</label>
         <Controller
             name={name}
             control={control}
@@ -19,7 +19,7 @@ const FormInputText: React.FC<FormInputTextProps> = ({ name, control, label, typ
             <input
                 {...field}
                 type={type}
-                className="h-10 p-2 border border-gray-400 rounded"
+                className="h-10 p-2 border border-tSecondary text-tSecondary rounded"
             />
             )}
         />
