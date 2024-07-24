@@ -1,7 +1,7 @@
 import { Language, NotificationsNone, Settings } from "@mui/icons-material";
 import ProfilePic from "../../assets/profile-img.jpg"
 
-const Navbar = () => {
+const Navbar : React.FC = () => {
     return (
         <div className="w-full h-12 bg-white sticky top-0 z-50">
             <div className="h-full flex items-center justify-between py-0 px-5">
