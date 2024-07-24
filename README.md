@@ -78,6 +78,7 @@ export const getItems = createAsyncThunk("items/getItems", async () => {
 - this application is deployed on github pages, and each time the dev branch is merged with master and automated workflow will run and deploy the latest merged commits on master branch
 - The application is using DataGrid from MUI to represent table data and MUI Icons 
 - The application is styled using [Tailwind CSS](https://tailwindcss.com/) for a clean and responsive design.
+- The application also uses the factory design pattern to generate input field with various types 
 
 
 
