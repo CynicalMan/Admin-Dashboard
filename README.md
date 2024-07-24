@@ -42,7 +42,7 @@ This is a frontend application built with ReactJS, Redux Toolkit, and TypeScript
 
 Describe how each CRUD operation is implemented in your application.
 
-Example: using createAsyncThunk to fetch :
+Example: To get items, we use createAsyncThunk to handle the asynchronous API request. Here’s how it’s implemented:
 ```js
 export const getItems = createAsyncThunk("items/getItems", async () => {
     const response = await axios.get<Item[]>("https://jsonplaceholder.typicode.com/todos"); 
