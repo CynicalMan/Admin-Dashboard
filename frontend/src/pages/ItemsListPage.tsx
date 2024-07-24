@@ -16,9 +16,9 @@ const ItemsListPage: React.FC = () => {
   }, [dispatch, status]);
 
   return (
-    <>
+    <div className='max-w-[calc(100%-16rem)]'>
       <ItemsList items={items} error={error}  />
-    </>
+    </div>
   );
 }
 

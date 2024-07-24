@@ -5,17 +5,14 @@ import ItemsPage from './pages/ItemsPage';
 
 
 const App: React.FC = () => {
-  console.log(
-    "hghjgjh"
-  );
-  
   return (
     <>
       <Navbar />
-      <div className="flex mt-2">
+      <div className="flex">
         <Sidebar />
-        <div className="mx-auto mt-1">
+        <div className="w-full bg-white">
           <ItemsPage />
+          {/* <ThemePicker/> */}
         </div>
       </div>
     </>

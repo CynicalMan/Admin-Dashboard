@@ -27,14 +27,13 @@ const ItemsList: React.FC<ItemsListProps> = ({ items, error }) => {
     
     
     const columns = [
-        { field: 'id', headerName: 'ID', width: 90 },
-        { field: 'userId', headerName: 'UserId', width: 150 },
-        { field: 'title', headerName: 'Title', width: 150 },
-        { field: 'completed', headerName: 'Completed', width: 200 },
+        { field: 'id', headerName: 'ID',   },
+        { field: 'userId', headerName: 'UserId' },
+        { field: 'title', headerName: 'Title' },
+        { field: 'completed', headerName: 'Completed' },
         {
             field: "action",
             headerName: "Action",
-            width: 150,
             renderCell: (params: { row: { id: number ; }; }) => {
                 return (
                 <>
@@ -49,18 +48,22 @@ const ItemsList: React.FC<ItemsListProps> = ({ items, error }) => {
     ];
 
     return (
-        <div className="flex-1">
-            <DataGrid
-                rows={data}
-                disableRowSelectionOnClick
-                columns={columns}
-                checkboxSelection
-                initialState={{
-                    pagination: { paginationModel: { pageSize: 5 } },
-                }}
-                pageSizeOptions={[5, 10, 25]}
-            />
-            <p>loading items</p>
+        <div className="w-full  h-screen p-4 sm:p-6 lg:p-8">
+            <div className="bg-white rounded-lg shadow-md overflow-hidden">
+                <div className="h-96 sm:h-[calc(100vh-200px)]">
+                    <DataGrid
+                        rows={data}
+                        disableRowSelectionOnClick
+                        columns={columns}
+                        checkboxSelection
+                        initialState={{
+                            pagination: { paginationModel: { pageSize: 5 } },
+                        }}
+                        pageSizeOptions={[5, 10, 25]}
+                    />
+                    <p>loading items</p>
+                </div>
+            </div>
         </div>
     );
 };

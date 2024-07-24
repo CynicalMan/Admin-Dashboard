@@ -1,105 +1,42 @@
-import React, { useState } from "react"
+import React from "react";
+import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
+import { FormFactory } from "../components/shared/FormFactory";
+import AddItemFormDefinition from "../components/shared/Form/FieldDefinitions/AddItemFieldDefinition";
 import { addItem } from "../api/itemsApi";
 import { AppDispatch } from "../redux/store";
 
 const AddItemPage: React.FC = () => {
-
   const dispatch = useDispatch<AppDispatch>();
-    const [formData, setFormData] = useState({
-        userId: "",
-        title: "",
-        completed: false,
-    });
+  const { control, handleSubmit } = useForm();
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value, type, checked } = e.target;
-        setFormData({
-            ...formData,
-            [name]: type === "checkbox" ? checked : value,
-        });
-        
+  const onSubmit = (data: any) => {
+    const newItem = {
+      userId: parseInt(data.userId),
+      title: data.title,
+      completed: data.completed === "true",
     };
-
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        const newItem = {
-            userId: parseInt(formData.userId),
-            title: formData.title,
-            completed: formData.completed,
-        };
-        console.log(newItem);
-        
-        dispatch(addItem(newItem));
-    };
+    dispatch(addItem(newItem));
+  };
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">New User</h1>
-      <form className="flex flex-wrap" onSubmit={handleSubmit}>
-        <div className="w-96 flex flex-col mt-2 mr-4">
-          <label className="mb-2 text-sm font-semibold text-gray-600">
-            User Id
-          </label>
-          <input
-            type="text"
-            placeholder="1"
-            name="userId"
-            className="h-10 p-2 border border-gray-400 rounded"
-            value={formData.userId}
-            onChange={handleChange}
-          />
+      <h1 className="text-2xl font-bold mb-4">New Item</h1>
+      <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-lg mx-auto p-4">
+        <div className="flex flex-wrap -mx-2">
+          {AddItemFormDefinition.map((field, index) => (
+            <FormFactory key={index} field={field} control={control} />
+          ))}
         </div>
-        <div className="w-96 flex flex-col mt-2 mr-4">
-          <label className="mb-2 text-sm font-semibold text-gray-600">
-            Title
-          </label>
-          <input
-            type="text"
-            placeholder="lorem ipsum"
-            name="title"
-            value={formData.title}
-            onChange={handleChange}
-            className="h-10 p-2 border border-gray-400 rounded"
-          />
-        </div>
-        <div className="w-96 flex flex-col mt-2 mr-4">
-          <label className="mb-2 text-sm font-semibold text-gray-600">
-            Task Status
-          </label>
-          <div className="flex items-center">
-            <input
-              type="radio"
-              name="status"
-              id="completed"
-              value="true"
-              className=""
-              checked={formData.completed === true}
-              onChange={handleChange}
-            />
-            <label htmlFor="completed" className="ml-2 text-lg text-gray-600">
-              Completed
-            </label>
-            <input
-              type="radio"
-              name="status"
-              id="incomplete"
-              value="false"
-              checked={formData.completed === false}
-              onChange={handleChange}
-              className="ml-4 "
-            />
-            <label htmlFor="incomplete" className="ml-2 text-lg text-gray-600">
-              In Progress
-            </label>
-          </div>
-        </div>
-        <button type="submit" className="w-48 bg-blue-600 text-white py-2 px-4 font-semibold rounded mt-8 cursor-pointer">
+        <button
+          type="submit"
+          className="px-4 py-2 mt-4 text-white bg-blue-500 rounded hover:bg-blue-600"
+        >
           Create
         </button>
       </form>
     </div>
   );
-}
+};
 
-export default AddItemPage
+export default AddItemPage;
