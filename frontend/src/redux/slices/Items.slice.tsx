@@ -35,6 +35,7 @@ const itemsSlice = createSlice({
                 (item) => item.id === action.payload.id
             );
             if (existingItemIndex !== -1) {
+                console.log("jj");
                 state.items[existingItemIndex] = action.payload;
             } else {
                 state.items.push(action.payload);

@@ -11,20 +11,20 @@ interface FormInputRadioProps {
 const FormInputRadio: React.FC<FormInputRadioProps> = ({ name, control, label, options }) => {
     return (
         <div className="flex flex-col mb-4">
-        <label className="mb-2 font-semibold text-gray-700">{label}</label>
+        <label className="mb-2 font-semibold text-tSecondary">{label}</label>
         <Controller
             name={name}
             control={control}
             render={({ field }) => (
-            <div className="flex flex-wrap">
+            <div className="flex flex-wrap text-tSecondary">
                 {options.map((option) => (
-                <label key={option.value} className="mr-4">
+                <label key={option.value} className="mr-4 text-tSecondary">
                     <input
                     {...field}
                     type="radio"
                     value={option.value}
                     checked={field.value === option.value}
-                    className="mr-2"
+                    className="mr-2 text-tSecondary"
                     />
                     {option.label}
                 </label>
