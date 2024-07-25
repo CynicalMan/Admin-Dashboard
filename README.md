@@ -7,6 +7,7 @@ This is a frontend application built with ReactJS, Redux Toolkit, and TypeScript
 - Add new items
 - Edit existing items
 - Delete items
+- Error Handling
 - Responsive design
 
 ## Live Demo URL
