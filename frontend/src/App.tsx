@@ -8,16 +8,15 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const App: React.FC = () => {
   return (
-    <>
+    <div className='h-screen'>
       <Navbar />
-      <div className="flex">
+      <div className="flex h-[calc(100%-48px)] justify-between md:flex-row md:justify-normal  flex-col-reverse">
         <Sidebar />
-        <div className="w-full bg-white">
+        <div className="md:w-full">
           <ItemsPage />
-          {/* <ThemePicker/> */}
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

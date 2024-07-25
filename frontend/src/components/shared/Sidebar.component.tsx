@@ -7,13 +7,13 @@ const Sidebar : React.FC = () => {
     
     return (
         <>
-            <div className={`h-[calc(100vh-48px)] w-full max-w-[4rem] md:max-w-[15rem] bg-primary sticky top-[48px]`}>
+            <div className={`md:h-[calc(100vh-48px)] w-full md:max-w-[15rem] bg-primary sticky bottom-0 md:top-[48px]`}>
                 <div className="p-2 lg:p-5 md:p-0 text-secondary">
                     <div className="mt-2">
                         <h3 className="text-xs hidden md:block text-secondary">
                             Items
                         </h3>
-                        <ul className="p-1 grid gap-2 list-none">
+                        <ul className="p-1 w-full flex flex-row justify-center md:justify-normal md:grid gap-2  list-none">
                             <li>
                                 <Link to="/items" className=" border-solid border border-secondary p-1 cursor-pointer flex items-center justify-center md:justify-start rounded-lg">
                                     <div className="rounded-lg p-1 ">
