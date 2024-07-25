@@ -10,11 +10,10 @@ const App: React.FC = () => {
   return (
     <>
       <Navbar />
-      <div className="flex">
+      <div className="flex md:flex-row flex-col-reverse">
         <Sidebar />
-        <div className="w-full bg-white">
+        <div className="">
           <ItemsPage />
-          {/* <ThemePicker/> */}
         </div>
       </div>
     </>
