@@ -24,18 +24,15 @@ const itemsSlice = createSlice({
         })
         .addCase(getItems.rejected, (state, action) => {
             state.status = "failed";
-            state.error = action.error.message || "Failed to fetch items";
+            state.error = action.payload as string;
         })
         .addCase(getItem.pending, (state) => {
             state.status = "loading";
         })
         .addCase(getItem.fulfilled, (state, action) => {
             state.status = "succeeded";
-            const existingItemIndex = state.items.findIndex(
-                (item) => item.id === action.payload.id
-            );
+            const existingItemIndex = state.items.findIndex((item) => item.id === action.payload.id);
             if (existingItemIndex !== -1) {
-                
                 state.items[existingItemIndex] = action.payload;
             } else {
                 state.items.push(action.payload);
@@ -43,21 +40,28 @@ const itemsSlice = createSlice({
         })
         .addCase(getItem.rejected, (state, action) => {
             state.status = "failed";
-            state.error = action.error.message || "Failed to fetch item";
+            state.error = action.payload as string;
         })
         .addCase(addItem.fulfilled, (state, action) => {
             state.items.push(action.payload);
         })
+        .addCase(addItem.rejected, (state, action) => {
+            state.error = action.payload as string;
+        })
         .addCase(updateItem.fulfilled, (state, action) => {
-            const index = state.items.findIndex(
-            (item) => item.id === action.payload.id
-            );
+            const index = state.items.findIndex((item) => item.id === action.payload.id);
             if (index !== -1) {
-            state.items[index] = action.payload;
+                state.items[index] = action.payload;
             }
+        })
+        .addCase(updateItem.rejected, (state, action) => {
+            state.error = action.payload as string;
         })
         .addCase(deleteItem.fulfilled, (state, action) => {
             state.items = state.items.filter((item) => item.id !== action.payload);
+        })
+        .addCase(deleteItem.rejected, (state, action) => {
+            state.error = action.payload as string;
         });
     },
 });

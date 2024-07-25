@@ -5,13 +5,13 @@ import { AppDispatch, RootState } from "../redux/store";
 import { useParams } from "react-router";
 import { useForm } from "react-hook-form";
 import { FormFactory } from "../components/shared/FormFactory";
-import AddItemFormDefinition from "../components/shared/Form/FieldDefinitions/AddItemFieldDefinition";
+import UpdateItemFormDefinition from "../components/shared/Form/FieldDefinitions/UpdateFieldDefinition";
 import { toast } from "react-toastify";
 
 const UpdateItemPage: React.FC = () => {
     const { id } = useParams<{ id: string }>();
     const dispatch = useDispatch<AppDispatch>();
-    const { items, status } = useSelector((state: RootState) => state.items);
+    const { items, status,error } = useSelector((state: RootState) => state.items);
     const { control, handleSubmit, setValue } = useForm();
 
     useEffect(() => {
@@ -42,8 +42,14 @@ const UpdateItemPage: React.FC = () => {
                 title: data.title,
                 completed: data.completed === "true",
             };
-            dispatch(updateItem(newItem));
-            toast.success(`Item with ID ${id} updated!`);
+            dispatch(updateItem(newItem))
+                .unwrap() 
+                .then(() => {
+                    toast.success(`Item with ID ${id} updated successfully!`);
+                })
+                .catch((err: any) => {
+                    toast.error(`Failed to update item: ${err.message || err || 'Unknown error'}`);
+                });
         }
     };
 
@@ -53,7 +59,7 @@ const UpdateItemPage: React.FC = () => {
             <form className="w-full p-4"onSubmit={handleSubmit(onSubmit)}>
                 <div className="">
                     <div className="flex flex-wrap -mx-2">
-                        {AddItemFormDefinition.map((field, index) => (
+                        {UpdateItemFormDefinition.map((field, index) => (
                             <FormFactory key={index} field={field} control={control} />
                         ))}
                     </div>

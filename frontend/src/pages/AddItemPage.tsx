@@ -17,8 +17,14 @@ const AddItemPage: React.FC = () => {
       title: data.title,
       completed: data.completed === "true",
     };
-    dispatch(addItem(newItem));
-    toast.success(`Item Successfully Created!`)
+    dispatch(addItem(newItem))
+            .unwrap() 
+            .then((res) => {
+                toast.success(`Item with Id ${res.id} added successfully!`);
+            })
+            .catch((err: any) => {
+                toast.error(`Failed to add item: ${err.message || err || 'Unknown error'}`);
+            });
   };
 
   return (
