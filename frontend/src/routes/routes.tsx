@@ -1,7 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import NotFound from "../pages/NotFound";
 import AddItemPage from "../pages/AddItemPage";
-import ItemPage from "../pages/ItemPage";
 import ItemsPage from "../pages/ItemsPage";
 import ItemsListPage from "../pages/ItemsListPage";
 import App from "../App";
@@ -27,11 +26,7 @@ export const router = createBrowserRouter([
                 {
                     path: "update-item/:id",
                     element: <UpdateItemPage />,
-                },
-                {
-                    path: "item/:id",
-                    element: <ItemPage />,
-                },
+                }
                 ],
             },
         ],

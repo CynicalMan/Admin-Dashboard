@@ -12,7 +12,7 @@ const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
     const themeClasses = themes[currentTheme];
 
     return (
-        <div className={`${themeClasses.background} ${themeClasses.text} min-h-screen`}>
+        <div className={`${themeClasses.background} ${themeClasses.text} h-screen`}>
             {children}
         </div>
     );

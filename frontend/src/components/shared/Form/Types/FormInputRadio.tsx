@@ -20,11 +20,11 @@ const FormInputRadio: React.FC<FormInputRadioProps> = ({ name, control, label, o
                 {options.map((option) => (
                 <label key={option.value} className="mr-4 text-tSecondary">
                     <input
-                    {...field}
-                    type="radio"
-                    value={option.value}
-                    checked={field.value === option.value}
-                    className="mr-2 text-tSecondary"
+                        {...field}
+                        type="radio"
+                        value={option.value}
+                        checked={field.value === option.value}
+                        className="mr-2 text-tSecondary"
                     />
                     {option.label}
                 </label>
