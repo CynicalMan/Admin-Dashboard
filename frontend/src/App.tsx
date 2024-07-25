@@ -10,9 +10,9 @@ const App: React.FC = () => {
   return (
     <div className='h-screen'>
       <Navbar />
-      <div className="flex h-[calc(100%-48px)] justify-between md:flex-row  flex-col-reverse">
+      <div className="flex h-[calc(100%-48px)] justify-between md:flex-row md:justify-normal  flex-col-reverse">
         <Sidebar />
-        <div className="">
+        <div className="md:w-full">
           <ItemsPage />
         </div>
       </div>
