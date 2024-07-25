@@ -11,7 +11,7 @@ import { toast } from "react-toastify";
 const UpdateItemPage: React.FC = () => {
     const { id } = useParams<{ id: string }>();
     const dispatch = useDispatch<AppDispatch>();
-    const { items, status,error } = useSelector((state: RootState) => state.items);
+    const { items, status } = useSelector((state: RootState) => state.items);
     const { control, handleSubmit, setValue } = useForm();
 
     useEffect(() => {
