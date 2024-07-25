@@ -74,20 +74,20 @@ const ItemsList: React.FC<ItemsListProps> = ({ items, error }) => {
     ];
 
     return (
-        <div className="w-full h-full p-4 sm:p-6 lg:p-2">
-            <div className="bg-white rounded-lg shadow-md overflow-hidden">
-                <div className="">
-                    <DataGrid
-                        rows={data}
-                        disableRowSelectionOnClick
-                        columns={columns}
-                        checkboxSelection
-                        initialState={{
-                            pagination: { paginationModel: { pageSize: 10 } },
-                        }}
-                        pageSizeOptions={[10,15,25]}
-                        autoHeight
-                    />
+        <div className="p-4 sm:p-6 lg:p-2">
+            <div className="bg-white rounded-lg shadow-md h-full max-h-screen overflow-hidden">
+                <div className="h-full max-h-[calc(100vh-10rem)] overflow-y-auto">
+                <DataGrid
+                    rows={data}
+                    disableRowSelectionOnClick
+                    columns={columns}
+                    checkboxSelection
+                    initialState={{
+                    pagination: { paginationModel: { pageSize: 10 } },
+                    }}
+                    pageSizeOptions={[10, 15, 25]}
+                    autoHeight={false}
+                />
                 </div>
             </div>
         </div>

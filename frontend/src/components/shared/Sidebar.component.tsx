@@ -7,7 +7,7 @@ const Sidebar : React.FC = () => {
     
     return (
         <>
-            <div className={`md:h-[calc(100vh-48px)] w-full md:max-w-[15rem] bg-primary sticky bottom-0 md:top-[48px]`}>
+            <div className={`md:h-[calc(100vh-48px)] w-full md:max-w-[15rem] bg-primary sticky bottom-0 md:top-[48px]  z-50`}>
                 <div className="p-2 lg:p-5 md:p-0 text-secondary">
                     <div className="mt-2">
                         <h3 className="text-xs hidden md:block text-secondary">
