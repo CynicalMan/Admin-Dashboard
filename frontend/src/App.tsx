@@ -8,15 +8,15 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const App: React.FC = () => {
   return (
-    <>
+    <div className='h-screen'>
       <Navbar />
-      <div className="flex md:flex-row flex-col-reverse">
+      <div className="flex h-[calc(100%-48px)] justify-between md:flex-row  flex-col-reverse">
         <Sidebar />
         <div className="">
           <ItemsPage />
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
