@@ -3,6 +3,7 @@ import ItemsList from '../components/shared/ItemsList'
 import { useDispatch, useSelector } from 'react-redux';
 import { getItems } from '../api/itemsApi';
 import { AppDispatch, RootState } from '../redux/store';
+import { toast } from 'react-toastify';
 
 const ItemsListPage: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -11,7 +12,14 @@ const ItemsListPage: React.FC = () => {
   
   useEffect(() => {
     if (status === "idle") {
-      dispatch(getItems());
+      dispatch(getItems())
+          .unwrap() 
+          .then(() => {
+              toast.success(`Items retrieved successfully!`);
+          })
+          .catch((err: any) => {
+              toast.error(`Failed to retrieve items: ${err.message || err || 'Unknown error'}`);
+          });
     }
   }, [dispatch, status]);
 

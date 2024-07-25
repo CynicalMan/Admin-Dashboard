@@ -1,7 +1,8 @@
-const UpdateItemFormDefinition = [
+const UpdateItemFormDefinition =  [
     {
-        name: "title",
-        label: "Title",
+        name: "userId",
+        label: "User Id",
+        disable: true,
         required: true,
         autoFocus: true,
         componentType: "text",
@@ -9,21 +10,22 @@ const UpdateItemFormDefinition = [
         grid: "w-full sm:w-1/2",
     },
     {
-        name: "description",
-        label: "Description",
+        name: "title",
+        label: "Title",
+        disable: false,
         required: true,
         componentType: "text",
         type: "text",
-        grid: "w-full",
+        grid: "w-full sm:w-1/2",
     },
     {
-        name: "priority",
-        label: "Priority",
+        name: "completed",
+        label: "Task Status",
+        disable: false,
         componentType: "radio",
         options: [
-        { value: "high", label: "High" },
-        { value: "medium", label: "Medium" },
-        { value: "low", label: "Low" },
+        { value: "true", label: "Completed" },
+        { value: "false", label: "In Progress" },
         ],
         grid: "w-full",
     },

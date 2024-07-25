@@ -5,10 +5,13 @@ interface FormInputRadioProps {
     name: string;
     control: any;
     label: string;
+    disable: boolean;
     options: { value: string; label: string }[];
 }
 
-const FormInputRadio: React.FC<FormInputRadioProps> = ({ name, control, label, options }) => {
+const FormInputRadio: React.FC<FormInputRadioProps> = ({ name, control,disable, label, options }) => {
+    console.log("FormInputRadio disable:", disable);
+    
     return (
         <div className="flex flex-col mb-4">
         <label className="mb-2 font-semibold text-tSecondary">{label}</label>
@@ -24,6 +27,7 @@ const FormInputRadio: React.FC<FormInputRadioProps> = ({ name, control, label, o
                         type="radio"
                         value={option.value}
                         checked={field.value === option.value}
+                        disabled={disable}
                         className="mr-2 text-tSecondary"
                     />
                     {option.label}

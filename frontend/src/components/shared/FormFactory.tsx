@@ -9,14 +9,26 @@ interface FormFactoryProps {
 }
 
 export const FormFactory: React.FC<FormFactoryProps> = ({ field, control }) => {
-  const { componentType, ...fieldProps } = field;
-
+  
+  console.log("FormFactory field:", field);
   const renderFieldComponent = () => {
-    switch (componentType) {
+    switch (field.componentType) {
       case 'text':
-        return <FormInputText control={control} {...fieldProps} />;
+        return <FormInputText 
+                  control={control} 
+                  name={field.name}
+                  label={field.label}
+                  type={field.type}
+                  disable={field.disable}
+                />;
       case 'radio':
-        return <FormInputRadio control={control} {...fieldProps} />;
+        return <FormInputRadio 
+                  name={field.name}
+                  control={control}
+                  label={field.label}
+                  options={field.options}
+                  disable={field.disable}
+                />;
       default:
         return null;
     }
